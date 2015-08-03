@@ -1,0 +1,4 @@
+{
+  // Optional general config file for rubocop.
+  "rubocop_config_file": "/Users/manvuong/.rubocop/config/default.yml"
+}
