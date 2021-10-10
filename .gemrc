@@ -1,1 +1,4 @@
-gem: --no-rdoc --no-ri 
+# Old
+# gem: --no-rdoc --no-ri 
+
+gem: --no-document
