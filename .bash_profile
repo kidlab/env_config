@@ -28,3 +28,16 @@ source '/Users/manvuong/google-cloud-sdk/completion.bash.inc'
 export PS1='\[\033[01;32m\]\u@\h\[\e[m\]:\[\033[01;34m\]\W \$\[\033[00m\] '
 
 export GREP_OPTIONS='--color=always'
+
+# Color SSH
+function colorssh() {
+  ARGS=$@
+  if [[ $ARGS =~ (production|ec2-.*compute-1) ]]; then
+    printf "\033]7;file://%s/\007" "production-instance"
+  else
+    printf "\033]7;file://%s/\007" "$ARGS"
+  fi
+  ssh $*
+}
+
+alias ssh="colorssh"
