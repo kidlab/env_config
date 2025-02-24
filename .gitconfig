@@ -1,36 +1,45 @@
+[commit]
+	gpgsign = true
 [user]
 	name = Man Vuong
 	email = thanhman.gm@gmail.com
+	signingkey = ED06C5D001E0BB5D <<-- CHANGE THIS!
 [alias]
-  ci = commit
-  co = checkout
-  st = status --short
-  lg = log --oneline --decorate -n 20
-  wd = diff --word-diff
-  wdc = diff --word-diff --cached
-  dc = diff --cached
+	ci = commit
+	co = checkout
+	st = status --short
+	br = branch
+	lg = log --oneline --decorate -n 20
+	wd = diff --word-diff
+	wdc = diff --word-diff --cached
+	dc = diff --cached
+[filter "lfs"]
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+	required = true
 [github]
-  user = kidlab
+  	user = kidlab
 [color]
-  diff = auto
-  status = auto
+	diff = auto
+	status = auto
 [color "status"]
-  changed = yellow
-  added = green
-  untracked = red
-[mergetool]
-  keepBackup = false
-[core]
-  editor = /usr/bin/vim
-	excludesfile = /Users/manvuong/.gitignore_global
-	ignorecase = false
-[diff]
-	tool = opendiff
-[merge]
-	tool = opendiff
-[difftool "sourcetree"]
-	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
-	path = 
-[mergetool "sourcetree"]
-	cmd = /Applications/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
-	trustExitCode = true
+	changed = yellow
+	added = green
+	untracked = red
+[branch]
+	autosetuprebase = always
+[rebase]
+	autosquash = true
+[push]
+	default = simple
+
+# Optional project-based fields
+[includeIf "gitdir:~/Workspace/toptal/"]
+	path = ~/Workspace/toptal/.gitconfig_include
+
+# "~/Workspace/toptal/.gitconfig_include" looks like this
+# [user]
+# 	name = Man Vuong
+# 	email = man.vuong@toptal.com
+# 	signingkey = CDD9670333CA18A5
