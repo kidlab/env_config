@@ -41,3 +41,4 @@ function colorssh() {
 }
 
 alias ssh="colorssh"
+alias be="bundle exec"
